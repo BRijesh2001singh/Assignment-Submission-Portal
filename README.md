@@ -34,7 +34,7 @@ Before you begin, ensure you have the following installed on your local machine:
 Clone the repository to your local machine using Git:
 
 ```bash
-git clone https://github.com/your-username/assignment-submission-api.git
+git clone git@github.com:BRijesh2001singh/Assignment-Submission-Portal.git
 ```
 
 # Install Dependencies
@@ -44,13 +44,13 @@ Navigate to the project directory and install the required dependencies:
 npm install
 ```
 # Set Up Environment Variables
-
+```bash
 JWT_SECRET=your-secret-key
 
 MONGO_URI=your-mongodb-uri
 
 PORT=3000
-
+```
 # Running the Application
 After installing all the dependencies. Run the following command.
 ```bash
