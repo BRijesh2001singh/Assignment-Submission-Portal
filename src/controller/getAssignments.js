@@ -12,7 +12,7 @@ export const getAssignment = async (req, res) => {
         return res.status(401).json({ error: "User unauthorized." });
     }
     const assignmentsList = await Assignments.find({ adminId: id }).populate('userId', 'name').populate('adminId', 'name');
-    /*populate user and admin name based on their ID*/
+    /*populate user and admin name based on their IDs*/
     if (!assignmentsList || assignmentsList.length === 0) {
         return res.status(404).json({ error: "No Assignments found." });
     }

@@ -78,19 +78,21 @@ Endpoints:
 "email":"demo@gmail.com",
 "password":"demo123",
 "role":"admin | user"  //role can either be admin or user
+
+// NOTE:Save the token that will be returned as response on successfull login.It will be used for accessing protected Routes.
 }
  ```
 3. POST /api/upload -Upload an assignment.
  Request Body:
  ```bash
 {
-"adminId"://enter admin idm
-"task"://enter assignment details
+"adminId":  //enter admin id
+"task":  //enter assignment details
 }
  ```
 Request Header:
 ```bash
-Authorizaton : (add the token that will be provided on login)
+Authorizaton : (add the token that will be provided on login,ONLY USERS TOKEN IS AUTHORIZED)
 
 //for verification of user and retrieving userID
 ```
@@ -99,24 +101,27 @@ Authorizaton : (add the token that will be provided on login)
 
 Request Header:
 ```bash
-Authorizaton : (add the token that will be provided on login)
+Authorizaton : (add the token that will be provided on login, ONLY ADMIN TOKEN IS AUTHORIZED)
 
 //for verification of admin and retrieving adminID
 ```
 
-5. POST /assignments/:id/accept  - Accept an assignment.
+5. GET /api/admins  -View all admins
+
+
+6. POST /api/assignments/:id/accept  - Accept an assignment.
 Request Parameter:
 ```bash
 id - Assignment Id
 ```
 Request Header:
 ```bash
-Authorizaton : (add the token that will be provided on login)
+Authorizaton : (add the token that will be provided on login,ONLY ADMIN TOKEN IS AUTHORIZED)
 
 //for verification of admin and retrieving adminID
 ```
 
-6. POST /assignments/:id/reject  - Reject an assignment.
+7. POST /api/assignments/:id/reject  - Reject an assignment.
 
 Request Parameter:
 ```bash
@@ -124,7 +129,7 @@ id - Assignment Id
 ```
 Request Header:
 ```bash
-Authorizaton : (add the token that will be provided on login)
+Authorizaton : (add the token that will be provided on login,ONLY ADMIN TOKEN IS AUTHORIZED)
 
 //for verification of admin and retrieving adminID
 ```
