@@ -1,6 +1,6 @@
 # Assignment Submission Portal API
 
-This is a backend API for an **Assignment Submission Portal**, where **users** can upload assignments, and **admins** can accept or reject them. The project is built with **Node.js**, **Express.js**, and **MongoDB**.All Inputs are validated using **Express-validator** , Authentication is handled using **JWT (JSON Web Tokens)**.
+This is a backend API for an **Assignment Submission Portal**, where **users** can upload assignments, and **admins** can accept or reject them. The project is built with **Node.js**, **Express.js**, and **MongoDB**.All Inputs are validated using **Express-validator** , Authentication is handled using **JWT (JSON Web Tokens)** also implement oAUTH2 google .
 
 ## Features
 
@@ -50,6 +50,13 @@ JWT_SECRET=your-secret-key
 MONGO_URI=your-mongodb-uri
 
 PORT=3000
+
+// GOOGLE PROVIDER
+
+GOOGLE_CLIENT_ID=your-google-client-id  //get the client id from google cloud console
+GOOGLE_CLIENT_SECRET=your-client-secret    //get the client secret from google cloud console
+GOOGLE_CLIENT_REDIRECT="http://localhost:3000/api/auth/google/redirect"   //setup redirect route after successfull login
+
 ```
 # Running the Application
 After installing all the dependencies. Run the following command.
@@ -134,6 +141,11 @@ Authorizaton : (add the token that will be provided on login,ONLY ADMIN TOKEN IS
 //for verification of admin and retrieving adminID
 ```
 
+# OAuth2 endpoints [Optional functionality] 
+IMPORTANT : Test these routes on browser ONLY.
+1. GET /auth/google   route for google login page
+  example: http://localhost:3000/api/auth/google
+
 # Validation
 Used express-validator middleware to validate all inputs.
 
@@ -142,13 +154,16 @@ Used express-validator middleware to validate all inputs.
 List of dependencies:
 ```bash
     "bcryptjs": "^2.4.3",
-    "cors": "^2.8.5",
-    "dotenv": "^16.4.5",
-    "express": "^4.21.1",
-    "express-validator": "^7.2.0",
-    "jsonwebtoken": "^9.0.2",
-    "mongoose": "^8.8.1",
-    "nodemon": "^3.1.7"
+     "cors": "^2.8.5",
+     "dotenv": "^16.4.5",
+     "express": "^4.21.1",
+     "express-session": "^1.18.1",
+     "express-validator": "^7.2.0", 
+     "jsonwebtoken": "^9.0.2",
+     "mongoose": "^8.8.1",
+     "nodemon": "^3.1.7",
+     "passport": "^0.7.0",
+     "passport-google-oauth20": "^2.0.0"
 ```
 
 # Additional Notes
